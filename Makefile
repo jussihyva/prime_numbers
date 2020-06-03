@@ -6,7 +6,7 @@
 #    By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/03 08:49:40 by ubuntu            #+#    #+#              #
-#    Updated: 2020/06/03 10:09:52 by ubuntu           ###   ########.fr        #
+#    Updated: 2020/06/03 11:19:02 by ubuntu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,13 @@ INCLUDES			=	-I $(LIBFT_FOLDER) -I $(LIBFTPRINTF_FOLDER)
 SRC_FOLDER			=	src
 MAIN				=	$(SRC_FOLDER)/prime_numbers.c
 HEADER				=	$(SRC_FOLDER)/prime_numbers.h
-SRC					=	
+
+SRC					=	memory.c
 
 OBJ_FOLDER			=	obj
+OBJ					=	$(addprefix $(OBJ_FOLDER)/, $(patsubst %.c, %.o, $(SRC)))
 
-all: $(LIBFT) $(LIBFTPRINTF) $(NAME) | $(OBJ_FOLDER)
+all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
 
 $(NAME): $(OBJ) $(MAIN)
 	@echo "$(NAME) created."
